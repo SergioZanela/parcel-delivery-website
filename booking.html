@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Delivery</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Book Your Delivery</h1>
     </header>
-    <main>
-</main>
-    <footer>
-        <p>&copy; 2024 Fast Parcel Delivery</p>
+
+    <main class="container my-5">
+        <form id="bookingForm">
+            <div class="mb-3">
+                <label for="pickup" class="form-label">Pickup Address</label>
+                <input type="text" id="pickup" class="form-control" placeholder="Enter pickup location">
+            </div>
+            <div class="mb-3">
+                <label for="delivery" class="form-label">Delivery Address</label>
+                <input type="text" id="delivery" class="form-control" placeholder="Enter delivery location">
+            </div>
+            <div class="mb-3">
+                <label for="distance" class="form-label">Estimated Distance</label>
+                <input type="text" id="distance" class="form-control" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Estimated Price</label>
+                <input type="text" id="price" class="form-control" readonly>
+            </div>
+            <button type="button" id="calculateBtn" class="btn btn-primary">Calculate Quote</button>
+            <button type="submit" class="btn btn-success">Proceed</button>
+        </form>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Fast Parcel Delivery. All rights reserved.</p>
     </footer>
+
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
-<main>
-    <form id="bookingForm">
-        <label for="pickup">Pickup Address:</label>
-        <input type="text" id="pickup" placeholder="Enter pickup location" required>
-
-        <label for="delivery">Delivery Address:</label>
-        <input type="text" id="delivery" placeholder="Enter delivery location" required>
-
-        <button type="button" onclick="calculatePrice()">Calculate Price</button>
-    </form>
-    <div id="result"></div>
-</main>
