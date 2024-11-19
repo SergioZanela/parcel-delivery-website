@@ -1,0 +1,5 @@
+function saveBooking(pickup, delivery, distance, price) {
+    const booking = { pickup, delivery, distance, price, date: new Date() };
+    localStorage.setItem('latestBooking', JSON.stringify(booking));
+    alert('Booking saved locally!');
+}
