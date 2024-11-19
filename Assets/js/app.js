@@ -63,3 +63,16 @@ function initializeAutocomplete() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeAutocomplete);
+function calculateDeliveryPrice(distance) {
+    const baseRate = 5.0; // Flat fee
+    const ratePerKm = 1.5; // $1.50 per km
+    const rushHourMultiplier = isRushHour() ? 1.5 : 1.0;
+
+    const price = (baseRate + distance * ratePerKm) * rushHourMultiplier;
+    return price.toFixed(2);
+}
+
+function isRushHour() {
+    const currentHour = new Date().getHours();
+    return (currentHour >= 7 && currentHour <= 9) || (currentHour >= 17 && currentHour <= 19);
+}
