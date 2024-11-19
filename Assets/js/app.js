@@ -9,7 +9,7 @@ async function calculatePrice() {
         return;
     }
 
-    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${encodeURIComponent(pickup)}&destinations=${encodeURIComponent(delivery)}&key=${apiKey}`;
+    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${encodeURIComponent(pickup)}&destinations=${encodeURIComponent(delivery)}&key=${AIzaSyCCFrtSnKSxEz4bWNtMATqy4D5eR58uDtw}`;
 
     try {
         const response = await fetch(url);
@@ -34,7 +34,22 @@ async function calculatePrice() {
         alert('Error calculating distance. Please try again.');
     }
 }
+function validateForm() {
+    const pickup = document.getElementById('pickup').value.trim();
+    const delivery = document.getElementById('delivery').value.trim();
 
+    if (!pickup || !delivery) {
+        alert('Both pickup and delivery addresses are required.');
+        return false;
+    }
+    return true;
+}
+
+async function calculatePrice() {
+    if (!validateForm()) return;
+
+    // (Existing distance calculation code here)
+}
 function proceedToBooking(price) {
     alert(`Proceeding with booking for $${price}.`);
     // Redirect to a booking confirmation page or add more logic here.
