@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    padding: 1rem;
+    text-align: center;
+}
+
+form {
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 400px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+}
