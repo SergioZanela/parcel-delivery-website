@@ -76,3 +76,13 @@ function isRushHour() {
     const currentHour = new Date().getHours();
     return (currentHour >= 7 && currentHour <= 9) || (currentHour >= 17 && currentHour <= 19);
 }
+function displayBookingSummary(distance, price) {
+    document.getElementById('distance').innerText = `Distance: ${distance} km`;
+    document.getElementById('price').innerText = `Total Price: $${price}`;
+    document.getElementById('confirmBooking').style.display = 'block';
+}
+
+function confirmBooking() {
+    alert('Your booking has been confirmed!');
+    // Later, add logic to save the booking to a database
+}
