@@ -86,3 +86,20 @@ function confirmBooking() {
     alert('Your booking has been confirmed!');
     // Later, add logic to save the booking to a database
 }
+try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('API request failed.');
+
+    const data = await response.json();
+    if (data.rows[0].elements[0].status !== "OK") {
+        throw new Error('Unable to calculate distance. Please check the addresses.');
+    }
+
+    const distance = data.rows[0].elements[0].distance.value / 1000; // in km
+    const price = calculateDeliveryPrice(distance);
+
+    displayBookingSummary(distance, price);
+} catch (error) {
+    console.error('Error:', error.message);
+    alert('An error occurred. Please try again later.');
+}
